@@ -1,0 +1,41 @@
+<div class="content">
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="text-center">Guardar un Nuevo Cliente</h4>
+            </div>
+            <div class="card-body">
+                <form>
+                    <!--idCliente-->
+                    <!--ES POR SEQUENCIA AUTOMATICA-->
+                    
+                    <!--nombre-->
+                    <div class="form-group">
+                        <label for="nombre">Id </label>
+                        <input type="text" class="form-control" name="nombre" [(ngModel)]="course.idCurso">
+                    </div>
+                    <!--direccion-->
+                    <div class="form-group">
+                        <label for="direccion">Nombre</label>
+                        <input type="text" class="form-control" name="direccion" [(ngModel)]="course.nombre">
+                    </div>
+                    <!--contacto-->
+                    <div>
+                        <label for="contacto">Duracion en Horas</label>
+                        <input type="number" class="form-control" name="contacto" [(ngModel)]="course.duracionHoras">
+                    </div>
+
+                    @if (course.duracionHoras !== undefined){
+                    <!--BUTTON-->
+                    <button class="btn btn-primary mt-3" (click)="create()">GUARDAR</button>
+                    }@else{
+                    <!--BUTTON-->
+                    <button class="btn btn-primary mt-3" disabled>GUARDAR</button>
+                    }
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
