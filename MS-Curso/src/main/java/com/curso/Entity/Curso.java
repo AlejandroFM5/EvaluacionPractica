@@ -27,11 +27,11 @@ public class Curso {
 		return "Curso [id=" + idCurso + ", nombre=" + nombre + ", duracionHoras=" + duracionHoras + "]";
 	}
 
-	public int getId() {
+	public int getIdCurso() {
 		return idCurso;
 	}
 
-	public void setId(int idCurso) {
+	public void setIdCurso(int idCurso) {
 		this.idCurso = idCurso;
 	}
 

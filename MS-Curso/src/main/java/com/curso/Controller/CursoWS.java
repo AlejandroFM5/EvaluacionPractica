@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,6 +17,7 @@ import com.curso.Entity.Curso;
 import com.curso.Service.CursoServiceImpl;
 
 @RestController
+@CrossOrigin("*")
 @RequestMapping("/curso")
 public class CursoWS {
 
@@ -33,7 +35,7 @@ public class CursoWS {
 	
 	@PostMapping("/nuevo")
 	public ResponseEntity<?> createNewCurso(@RequestBody Curso crs){
-		Curso auxCrs = service.find(crs.getId());
+		Curso auxCrs = service.find(crs.getIdCurso());
 		if(auxCrs == null) {
 			service.create(crs);
 			return ResponseEntity.status(HttpStatus.OK).body(crs);
@@ -43,7 +45,7 @@ public class CursoWS {
 	
 	@DeleteMapping("/eliminar")
 	public ResponseEntity<?> deleteCurso(@RequestBody Curso crs){
-		Curso auxCrs = service.find(crs.getId());
+		Curso auxCrs = service.find(crs.getIdCurso());
 		if(auxCrs!=null) {
 			if(service.delete(crs)!=null) {
 				return ResponseEntity.status(HttpStatus.OK).body(crs);

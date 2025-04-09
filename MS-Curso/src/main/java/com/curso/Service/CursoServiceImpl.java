@@ -31,7 +31,7 @@ public class CursoServiceImpl implements ICursoService{
 
 	@Override
 	public Curso delete(Curso crs) {
-		Curso auxCrs = this.find(crs.getId());
+		Curso auxCrs = this.find(crs.getIdCurso());
 		if(auxCrs!=null) {
 			repository.delete(crs);
 			return crs;
